@@ -12,7 +12,7 @@ import UIKit
 /// This governs what colors things are.
 /// You can create your own themes, by adopting this protocol,
 /// or subclassing an existing theme.
-public protocol TabViewTheme {
+@objc public protocol TabViewTheme {
     /// Color of the content view of the tab view controller.
     /// Displayed when there are no tabs, or a tab's view controller is transparent.
     var backgroundColor: UIColor { get }
@@ -52,8 +52,7 @@ public protocol TabViewTheme {
 
 /// Light tab view theme.
 /// Attempts to mimic UIBarStyleDefault
-open class TabViewThemeLight: TabViewTheme {
-    public init() {}
+open class TabViewThemeLight: NSObject, TabViewTheme {
     public var backgroundColor: UIColor = .lightGray
     public var barTitleColor: UIColor = .black
     public var barTintColor: UIColor = .init(white: 1, alpha: 1)
@@ -69,8 +68,7 @@ open class TabViewThemeLight: TabViewTheme {
 
 /// Dark tab view theme.
 /// Attempts to mimic UIBarStyleBlack
-open class TabViewThemeDark: TabViewTheme {
-    public init() {}
+open class TabViewThemeDark: NSObject, TabViewTheme {
     public var backgroundColor: UIColor = .darkGray
     public var barTitleColor: UIColor = .white
     public var barTintColor: UIColor = .init(white: 0.2, alpha: 1)
