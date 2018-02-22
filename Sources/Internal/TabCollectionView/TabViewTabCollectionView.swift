@@ -173,7 +173,7 @@ extension TabViewTabCollectionView: UICollectionViewDropDelegate {
             let viewController = dragItem.localObject as? UIViewController,
             let oldDelegate = coordinator.session.localDragSession?.localContext as? TabViewBarDelegate
         else { return }
-        oldDelegate.closeTab(viewController)
+        oldDelegate.detachTab(viewController)
         barDelegate?.insertTab(viewController, atIndex: destinationIndexPath.item)
         self.barDelegate?.activateTab(viewController)
     }

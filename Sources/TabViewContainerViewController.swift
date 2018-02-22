@@ -66,6 +66,14 @@ open class TabViewContainerViewController<TabViewType: TabViewController>: UIVie
         }
     }
 
+	/// The container will automatically set this as the delegate for the tab view controllers.
+	public weak var delegateForTabControllers: TabViewControllerDelegate? = nil {
+		didSet {
+			primaryTabViewController.delegate = delegateForTabControllers
+			secondaryTabViewController?.delegate = delegateForTabControllers
+		}
+	}
+
     /// Current theme. When set, will propagate to current tab view controllers.
     public var theme: TabViewTheme {
         didSet { applyTheme(theme) }
@@ -83,13 +91,15 @@ open class TabViewContainerViewController<TabViewType: TabViewController>: UIVie
     public let primaryTabViewController: TabViewType
 
     /// The secondary tab view controller in the container. Is visible if the container is in split view.
-    public private(set) var secondaryTabViewController: TabViewType? {
+	/// Note: It is advisable not to set this manually. It is open only so subclasses can observe it via an override.
+    open var secondaryTabViewController: TabViewType? {
         didSet {
             oldValue?.view.removeFromSuperview()
             oldValue?.removeFromParentViewController()
 
             if let newValue = secondaryTabViewController {
                 newValue.container = self
+				newValue.delegate = delegateForTabControllers
                 addChildViewController(newValue)
                 stackView.addArrangedSubview(newValue.view)
                 newValue.didMove(toParentViewController: self)
@@ -119,10 +129,26 @@ open class TabViewContainerViewController<TabViewType: TabViewController>: UIVie
 
         dropView.container = self
         primaryTabViewController.container = self
+		primaryTabViewController.delegate = delegateForTabControllers
         addChildViewController(primaryTabViewController)
     }
 
-    public required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    public required init?(coder aDecoder: NSCoder)
+	{
+		self.state = .single
+		self.theme = TabViewThemeLight()
+		self.primaryTabViewController = TabViewType.init(theme: theme)
+		self.secondaryTabViewController = nil
+		self.stackView = UIStackView()
+		self.backgroundView = UIView()
+
+		super.init(coder: aDecoder)
+
+		dropView.container = self
+		primaryTabViewController.container = self
+		primaryTabViewController.delegate = delegateForTabControllers
+		addChildViewController(primaryTabViewController)
+	}
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -219,7 +245,7 @@ class TabViewContainerDropView: UIView, UIDropInteractionDelegate {
         // Move the dropped view controller into a new secondary tab view controller.
         container.contentViewRightInset = 0
         container.state = .split
-        container.primaryTabViewController.closeTab(viewController)
+        container.primaryTabViewController.detachTab(viewController)
         container.secondaryTabViewController?.viewControllers = [viewController]
     }
 }

@@ -23,6 +23,9 @@ open class TabViewController: UIViewController {
         set { super.title = newValue }
     }
 
+	/// Use delegate calls to customize tab lifecycle.
+	public weak var delegate: TabViewControllerDelegate? = nil
+
     /// The current tab shown in the tab view controller's content view
     public var visibleViewController: UIViewController? {
         didSet {
@@ -162,14 +165,31 @@ open class TabViewController: UIViewController {
         if !_viewControllers.contains(tab) {
             _viewControllers.append(tab)
             tabViewBar.addTab(atIndex: _viewControllers.count - 1)
+			delegate?.tabViewController(self, didInstallTab: tab)
         }
         visibleViewController = tab
+		delegate?.tabViewController(self, didActivateTab: tab)
     }
 
     /// Closes the provided tab and selects another tab to be active.
     ///
     /// - Parameter tab: the tab to close
     open func closeTab(_ tab: UIViewController) {
+		if delegate?.tabViewController(self, shouldCloseTab: tab) == false {
+			// The delegate asked for the child controller not to be closed, so we stop here.
+			return
+		}
+
+		detachTab(tab)
+
+		// If the child controller is interested in being informed it was closed, we do so.
+		delegate?.tabViewController(self, didCloseTab: tab)
+	}
+
+	/// Removes the tab from this tab view controller but doesn't inform the tab it is being closed. This is an
+	/// internal method used for more than simply closing tabs, like also to move controllers between different
+	/// tab view controllers.
+	func detachTab(_ tab: UIViewController) {
         if let index = _viewControllers.index(of: tab) {
             _viewControllers.remove(at: index)
             tabViewBar.removeTab(atIndex: index)
@@ -236,6 +256,25 @@ open class TabViewController: UIViewController {
             }
         }
     }
+}
+
+/// View controllers that are added as children to TabViewController can implement this protocol to customize their
+/// behavior regarding their lifecycles.
+public protocol TabViewControllerDelegate: class {
+
+	/// Asks the delegae if the tab is ready to be closed. Return false to prevent this tab from being closed.
+	/// This is useful, for example, to prevent the tab closing when the document it is displaying has unsaved changes.
+	func tabViewController(_ tabViewController: TabViewController, shouldCloseTab tab: UIViewController) -> Bool
+
+	/// Informs the delegate that the view controller was added to its array of controllers.
+	func tabViewController(_ tabViewController: TabViewController, didInstallTab tab: UIViewController)
+
+	/// Informs the delegate that the view controller was activated.
+	func tabViewController(_ tabViewController: TabViewController, didActivateTab tab: UIViewController)
+
+	/// Informs the delegate that the view controller was successfully removed from the tab view controller, and that
+	/// it will be released as soon as this method returns.
+	func tabViewController(_ tabViewController: TabViewController, didCloseTab tab: UIViewController)
 }
 
 // Define these conformances, to make sure we expose the proper methods to the tab view bar.

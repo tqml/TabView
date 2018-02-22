@@ -20,6 +20,7 @@ protocol TabViewBarDataSource: class {
 
 protocol TabViewBarDelegate: class {
     func activateTab(_ tab: UIViewController)
+	func detachTab(_ tab: UIViewController)
     func closeTab(_ tab: UIViewController)
     func insertTab(_ tab: UIViewController, atIndex index: Int)
     var dragInProgress: Bool { get set }
