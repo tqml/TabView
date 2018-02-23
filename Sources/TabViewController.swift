@@ -258,8 +258,6 @@ open class TabViewController: UIViewController {
     }
 }
 
-/// View controllers that are added as children to TabViewController can implement this protocol to customize their
-/// behavior regarding their lifecycles.
 public protocol TabViewControllerDelegate: class {
 
 	/// Asks the delegae if the tab is ready to be closed. Return false to prevent this tab from being closed.
