@@ -87,6 +87,7 @@ extension TabViewTabCollectionView: UICollectionViewDataSource {
         let tab = viewControllers[indexPath.row]
 
         cell.collectionView = self
+		cell.showCloseButton = barDelegate?.wantsCloseButton(for: tab) ?? true
         cell.setTab(tab)
 
         return cell
@@ -194,6 +195,10 @@ private class TabViewTab: UICollectionViewCell {
         didSet { update() }
     }
 
+	var showCloseButton: Bool = true {
+		didSet { update() }
+	}
+
     override init(frame: CGRect) {
         closeButton = UIButton()
         titleView = UILabel()
@@ -286,7 +291,7 @@ private class TabViewTab: UICollectionViewCell {
             applyTheme(theme)
         }
 
-        self.closeButton.isHidden = !self.isActive || self.bounds.size.width < closeButtonSize
+        self.closeButton.isHidden = (!self.isActive || self.bounds.size.width < closeButtonSize) || !showCloseButton
 
         titleView.text = self.currentTab?.title
         if !closeButton.isHidden && self.bounds.width - titleView.intrinsicContentSize.width - titleLabelPadding * 2 < closeButtonSize {

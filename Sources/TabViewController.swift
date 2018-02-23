@@ -218,6 +218,12 @@ open class TabViewController: UIViewController {
         tabViewBar.addTab(atIndex: index)
     }
 
+	/// Requests the controller to reload the titles and other properties (like whether the close button is desired)
+	/// of each tab cell.
+	func refreshTabCells() {
+		tabViewBar.refresh()
+	}
+
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return theme.statusBarStyle
     }
@@ -260,9 +266,12 @@ open class TabViewController: UIViewController {
 
 public protocol TabViewControllerDelegate: class {
 
-	/// Asks the delegae if the tab is ready to be closed. Return false to prevent this tab from being closed.
+	/// Asks the delegate if the tab is ready to be closed. Return false to prevent this tab from being closed.
 	/// This is useful, for example, to prevent the tab closing when the document it is displaying has unsaved changes.
 	func tabViewController(_ tabViewController: TabViewController, shouldCloseTab tab: UIViewController) -> Bool
+
+	/// Asks the delegate if the tab should display a close button.
+	func tabViewController(_ tabViewController: TabViewController, showCloseButtonForTab tab: UIViewController) -> Bool
 
 	/// Informs the delegate that the view controller was added to its array of controllers.
 	func tabViewController(_ tabViewController: TabViewController, didInstallTab tab: UIViewController)
@@ -277,4 +286,8 @@ public protocol TabViewControllerDelegate: class {
 
 // Define these conformances, to make sure we expose the proper methods to the tab view bar.
 extension TabViewController: TabViewBarDataSource, TabViewBarDelegate {
+
+	func wantsCloseButton(for tab: UIViewController) -> Bool {
+		return delegate?.tabViewController(self, showCloseButtonForTab: tab) ?? true
+	}
 }

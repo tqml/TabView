@@ -23,6 +23,7 @@ protocol TabViewBarDelegate: class {
 	func detachTab(_ tab: UIViewController)
     func closeTab(_ tab: UIViewController)
     func insertTab(_ tab: UIViewController, atIndex index: Int)
+	func wantsCloseButton(for tab: UIViewController) -> Bool
     var dragInProgress: Bool { get set }
 }
 
