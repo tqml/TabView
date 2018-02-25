@@ -40,6 +40,8 @@ class TabViewBar: UIView {
         didSet { self.applyTheme(theme) }
     }
 
+	var minimumBarItemWidth: CGFloat? = 32.0
+
     /// The bar has a visual effect view with a blur effect determined by the current theme.
     /// This tries to match UINavigationBar's blur effect as best as it can.
     private let visualEffectView: UIVisualEffectView
@@ -158,7 +160,8 @@ class TabViewBar: UIView {
 
     /// Reset the leading items.
     func setLeadingBarButtonItems(_ barButtonItems: [UIBarButtonItem]) {
-        let views = barButtonItems.map { $0.toView() }
+		let minimumWidth = minimumBarItemWidth
+        let views = barButtonItems.map { $0.toView(minimumWidth) }
 
         for view in leadingBarButtonStackView.arrangedSubviews {
             view.removeFromSuperview()
@@ -170,7 +173,8 @@ class TabViewBar: UIView {
 
     /// Reset the trailing items.
     func setTrailingBarButtonItems(_ barButtonItems: [UIBarButtonItem]) {
-        let views = barButtonItems.map { $0.toView() }
+		let minimumWidth = minimumBarItemWidth
+        let views = barButtonItems.map { $0.toView(minimumWidth) }
 
         for view in trailingBarButtonStackView.arrangedSubviews {
             view.removeFromSuperview()

@@ -11,12 +11,20 @@ import UIKit
 extension UIBarButtonItem {
 
     /// Takes a UIBarButtonItem and converts it to a UIBarButtonItemView, or instead returns its custom view if it has one.
-    func toView() -> UIView {
+	func toView(_ minWidth: CGFloat? = nil) -> UIView {
         if let customView = self.customView {
             return customView
         }
 
-        return UIBarButtonItemView(item: self)
+		let button = UIBarButtonItemView(item: self)
+
+		if let minWidth = minWidth
+		{
+			// Add minimum width constraint if we were asked to set it
+			button.widthAnchor.constraint(greaterThanOrEqualToConstant: minWidth).isActive = true
+		}
+
+        return button
     }
 }
 
