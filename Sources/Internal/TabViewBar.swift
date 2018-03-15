@@ -40,7 +40,10 @@ class TabViewBar: UIView {
         didSet { self.applyTheme(theme) }
     }
 
-	var minimumBarItemWidth: CGFloat? = 32.0
+	lazy var minimumBarItemWidth: CGFloat? =
+		{
+			return UIDevice.current.userInterfaceIdiom == .phone ? 24.0 : 30.0
+		}()
 
     /// The bar has a visual effect view with a blur effect determined by the current theme.
     /// This tries to match UINavigationBar's blur effect as best as it can.
