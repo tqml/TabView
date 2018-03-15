@@ -146,6 +146,7 @@ open class TabViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         updateVisibleViewControllerInsets()
+		tabViewBar.refresh()
     }
 
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
