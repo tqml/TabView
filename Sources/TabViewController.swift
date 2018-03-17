@@ -104,6 +104,15 @@ open class TabViewController: UIViewController {
         didSet { container?.dragStateChanged(in: self, to: dragInProgress) }
     }
 
+	var allowsDraggingLastTab: Bool {
+		if let container = self.container {
+			// We don't want the last tab of the primary tab view controller to be dragged away
+			return !(container.primaryTabViewController === self)
+		} else {
+			return true
+		}
+	}
+
     /// Create a new tab view controller, with a theme.
     public required init(theme: TabViewTheme) {
         self.theme = theme

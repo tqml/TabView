@@ -24,6 +24,7 @@ protocol TabViewBarDelegate: class {
     func closeTab(_ tab: UIViewController)
     func insertTab(_ tab: UIViewController, atIndex index: Int)
 	func wantsCloseButton(for tab: UIViewController) -> Bool
+	var allowsDraggingLastTab: Bool { get }
     var dragInProgress: Bool { get set }
 }
 
