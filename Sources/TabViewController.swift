@@ -304,7 +304,7 @@ public protocol TabViewControllerDelegate: class {
 
 public protocol TabViewChild
 {
-	weak var tabViewController: TabViewController? { get set }
+	var tabViewController: TabViewController? { get set }
 }
 
 // Define these conformances, to make sure we expose the proper methods to the tab view bar.
