@@ -93,6 +93,12 @@ open class TabViewController: UIViewController {
 
     /// Tab bar shown above the content view
     private let tabViewBar: TabViewBar
+	
+	/// A public accessor to the tabViewBar, to allow for targeted drop events from other apps.
+	public var titleBarView: UIView
+	{
+		return tabViewBar
+	}
 
     /// View containing the current tab's view
     private let contentView: UIView
