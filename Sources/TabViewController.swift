@@ -173,6 +173,7 @@ open class TabViewController: UIViewController {
     ///   - saveState: if the new state should be saved
     open func activateTab(_ tab: UIViewController) {
         if !_viewControllers.contains(tab) {
+            tabViewBar.layoutIfNeeded()
             _viewControllers.append(tab)
             tabViewBar.addTab(atIndex: _viewControllers.count - 1)
 			delegate?.tabViewController(self, didInstallTab: tab)
@@ -205,6 +206,7 @@ open class TabViewController: UIViewController {
 	/// tab view controllers.
 	func detachTab(_ tab: UIViewController) {
         if let index = _viewControllers.index(of: tab) {
+            tabViewBar.layoutIfNeeded()
             _viewControllers.remove(at: index)
             tabViewBar.removeTab(atIndex: index)
 
