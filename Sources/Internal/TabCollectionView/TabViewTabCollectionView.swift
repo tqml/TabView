@@ -56,7 +56,7 @@ class TabViewTabCollectionView: UICollectionView {
     /// Calls `update` for each visible cell.
     /// Useful to update title and such without affecting selection state
     func updateVisibleTabs() {
-        for cell in self.visibleCells.flatMap({ $0 as? TabViewTab }) {
+        for cell in self.visibleCells.compactMap({ $0 as? TabViewTab }) {
             cell.update()
         }
     }
