@@ -25,10 +25,10 @@ internal protocol TabViewContainer: class {
     var state: TabViewContainerState { get set }
 
     /// Get the primary tab view controller
-    var primaryTabViewController: TabViewController { get }
+    var primaryViewController: TabViewController { get }
 
     /// Get the secondary tab view controller, if there is one
-    var secondaryTabViewController: TabViewController? { get }
+    var secondaryViewController: TabViewController? { get }
 
     /// When a tab collection view starts dragging in either side, the container is alerted.
     /// This is done so the container can potentially enable a drop area to enter split view.
@@ -245,8 +245,8 @@ class TabViewContainerDropView: UIView, UIDropInteractionDelegate {
         // Move the dropped view controller into a new secondary tab view controller.
         container.contentViewRightInset = 0
         container.state = .split
-        container.primaryTabViewController.detachTab(viewController)
-        container.secondaryTabViewController?.viewControllers = [viewController]
+        container.primaryViewController.detachTab(viewController)
+        container.secondaryViewController?.viewControllers = [viewController]
     }
 }
 
@@ -263,11 +263,11 @@ extension TabViewContainerViewController: TabViewContainer {
         }
     }
     
-    var primaryTabViewController: TabViewController {
+    var primaryViewController: TabViewController {
         return primaryTabViewController
     }
 
-    var secondaryTabViewController: TabViewController? {
+    var secondaryViewController: TabViewController? {
         return secondaryTabViewController
     }
 

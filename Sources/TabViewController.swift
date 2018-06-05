@@ -113,7 +113,7 @@ open class TabViewController: UIViewController {
 	var allowsDraggingLastTab: Bool {
 		if let container = self.container {
 			// We don't want the last tab of the primary tab view controller to be dragged away
-			return !(container.primaryTabViewController === self)
+			return !(container.primaryViewController === self)
 		} else {
 			return true
 		}
@@ -230,7 +230,7 @@ open class TabViewController: UIViewController {
         // If this is the secondary vc in a container, and there are none left,
         // close this vc by setting the state to single
         if _viewControllers.isEmpty, let container = container {
-            if container.state == .split && container.secondaryTabViewController == self {
+            if container.state == .split && container.secondaryViewController == self {
                 container.state = .single
             }
         }
