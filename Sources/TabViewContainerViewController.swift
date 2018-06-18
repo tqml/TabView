@@ -62,6 +62,8 @@ open class TabViewContainerViewController<TabViewType: TabViewController>: UIVie
                 setOverrideTraitCollection(overriddenTraitCollection, forChildViewController: primaryTabViewController)
                 setOverrideTraitCollection(overriddenTraitCollection, forChildViewController: secondaryVC)
                 self.secondaryTabViewController = secondaryVC
+
+				prepareTabViewForDisplay(secondaryVC)
             }
         }
     }
@@ -177,6 +179,8 @@ open class TabViewContainerViewController<TabViewType: TabViewController>: UIVie
         primaryTabViewController.didMove(toParentViewController: self)
 
         applyTheme(theme)
+
+		prepareTabViewForDisplay(primaryViewController)
     }
 
     private func applyTheme(_ theme: TabViewTheme) {
@@ -192,7 +196,12 @@ open class TabViewContainerViewController<TabViewType: TabViewController>: UIVie
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return theme.statusBarStyle
     }
-    
+
+	/// Allows subclasses to customize the intial settings of the tab views in a simple manner. The default
+	/// implementation does nothing.
+	open func prepareTabViewForDisplay(_ tabView: TabViewController)
+	{
+	}
 }
 
 /// This transparent view is displayed on the trailing side of the container, only when a drag and drop session is active.
