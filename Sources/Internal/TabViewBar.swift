@@ -41,10 +41,8 @@ class TabViewBar: UIView {
         didSet { self.applyTheme(theme) }
     }
 
-	lazy var minimumBarItemWidth: CGFloat? =
-		{
-			return UIDevice.current.userInterfaceIdiom == .phone ? 24.0 : 30.0
-		}()
+	/// The minimum width of the bar items.
+	var minimumBarItemWidth: CGFloat = 30.0
 
     /// The bar has a visual effect view with a blur effect determined by the current theme.
     /// This tries to match UINavigationBar's blur effect as best as it can.
@@ -187,6 +185,16 @@ class TabViewBar: UIView {
             trailingBarButtonStackView.addArrangedSubview(view)
         }
     }
+
+	func setItemStackSpacing(_ spacing: CGFloat)
+	{
+		[leadingBarButtonStackView, trailingBarButtonStackView].forEach({ $0.spacing = spacing })
+	}
+
+	func setItemStackMinimumWidth(_ width: CGFloat)
+	{
+		minimumBarItemWidth = width
+	}
     
     /// Add a new tab at the given index. Animates.
     func addTab(atIndex index: Int) {
