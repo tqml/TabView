@@ -254,6 +254,16 @@ open class TabViewController: UIViewController {
         return theme.statusBarStyle
     }
 
+	public func setToolbarItemSpacing(_ spacing: CGFloat)
+	{
+		tabViewBar.setItemStackSpacing(spacing)
+	}
+
+	public func setToolbarItemMinimumWidth(_ width: CGFloat)
+	{
+		tabViewBar.setItemStackMinimumWidth(width)
+	}
+
     /// Apply the current theme to the view controller and its views.
     private func applyTheme(_ theme: TabViewTheme) {
         self.view.backgroundColor = theme.backgroundColor
