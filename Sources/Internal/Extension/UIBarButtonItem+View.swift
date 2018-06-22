@@ -8,10 +8,10 @@
 
 import UIKit
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
 
     /// Takes a UIBarButtonItem and converts it to a UIBarButtonItemView, or instead returns its custom view if it has one.
-	func toView(_ minWidth: CGFloat? = nil) -> UIView {
+	public func toView(_ minWidth: CGFloat? = nil) -> UIView {
         if let customView = self.customView {
             return customView
         }
