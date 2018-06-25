@@ -23,6 +23,7 @@ protocol TabViewBarDelegate: class {
 	func detachTab(_ tab: UIViewController)
     func closeTab(_ tab: UIViewController)
     func insertTab(_ tab: UIViewController, atIndex index: Int)
+	func newTab()
 	func wantsCloseButton(for tab: UIViewController) -> Bool
 	var allowsDraggingLastTab: Bool { get }
     var dragInProgress: Bool { get set }
@@ -59,6 +60,9 @@ class TabViewBar: UIView {
     
     /// Collection view containing the tabs from the data source
     private let tabCollectionView: TabViewTabCollectionView
+
+	/// A button that can be used to trigger the creation of a new tab.
+	private let newTabButton: UIButton
     
     /// View below the tabCollectionView that is a 1px separator
     private let separator: UIView
@@ -79,6 +83,7 @@ class TabViewBar: UIView {
         self.trailingBarButtonStackView = UIStackView()
         
         self.tabCollectionView = TabViewTabCollectionView(theme: theme)
+		self.newTabButton = UIButton(type: .custom)
         self.separator = UIView()
         
         super.init(frame: .zero)
@@ -129,13 +134,24 @@ class TabViewBar: UIView {
         addSubview(tabCollectionView)
         let tabTopConstraint = tabCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor)
         self.tabTopConstraint = tabTopConstraint
-        NSLayoutConstraint.activate([
-            tabCollectionView.heightAnchor.constraint(equalToConstant: tabHeight),
-            tabTopConstraint,
-            tabCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tabCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tabCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+
+		// Add new tab button
+		newTabButton.translatesAutoresizingMaskIntoConstraints = false
+		newTabButton.addTarget(self, action: #selector(TabViewBar.didTapNewTab(_:)), for: .touchUpInside)
+		addSubview(newTabButton)
+
+		// Activate collection view and add button constraints
+		NSLayoutConstraint.activate([
+			tabCollectionView.heightAnchor.constraint(equalToConstant: tabHeight),
+			tabTopConstraint,
+			tabCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+			tabCollectionView.trailingAnchor.constraint(equalTo: newTabButton.leadingAnchor, constant: 1),
+			newTabButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+			tabCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+			newTabButton.topAnchor.constraint(equalTo: tabCollectionView.topAnchor),
+			newTabButton.bottomAnchor.constraint(equalTo: tabCollectionView.bottomAnchor),
+			newTabButton.widthAnchor.constraint(equalTo: newTabButton.heightAnchor)
+			])
         
         // Add separator below tab collection view
         separator.translatesAutoresizingMaskIntoConstraints = false
@@ -153,11 +169,18 @@ class TabViewBar: UIView {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func applyTheme(_ theme: TabViewTheme) {
-        self.backgroundColor = theme.barTintColor.withAlphaComponent(0.7)
-        self.visualEffectView.effect = UIBlurEffect.init(style: theme.barBlurStyle)
-        self.titleLabel.textColor = theme.barTitleColor
-        self.separator.backgroundColor = theme.separatorColor
-        self.tabCollectionView.theme = theme
+        backgroundColor = theme.barTintColor.withAlphaComponent(0.7)
+        visualEffectView.effect = UIBlurEffect.init(style: theme.barBlurStyle)
+        titleLabel.textColor = theme.barTitleColor
+        separator.backgroundColor = theme.separatorColor
+        tabCollectionView.theme = theme
+
+		let attributes: [NSAttributedStringKey: Any] = [
+			.font: UIFont.systemFont(ofSize: 22),
+			.foregroundColor: theme.barTitleColor
+			]
+		newTabButton.setAttributedTitle(NSAttributedString(string: "+", attributes: attributes), for: .normal)
+		newTabButton.backgroundColor = theme.tabBackgroundDeselectedColor
     }
     
     /// Reset the leading items.
@@ -253,5 +276,10 @@ class TabViewBar: UIView {
             self.selectTab(atIndex: index)
         }
     }
+
+	@objc private func didTapNewTab(_ sender: Any?)
+	{
+		barDelegate?.newTab()
+	}
 }
 

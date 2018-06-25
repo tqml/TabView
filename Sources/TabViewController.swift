@@ -318,6 +318,9 @@ public protocol TabViewControllerDelegate: class {
 	/// Informs the delegate that the view controller was successfully removed from the tab view controller, and that
 	/// it will be released as soon as this method returns.
 	func tabViewController(_ tabViewController: TabViewController, didCloseTab tab: UIViewController)
+
+	/// Informs the delegate that the user has tapped the "new tab" button in the specified tab view controller.
+	func tabViewControllerWantsNewTab(_ tabViewController: TabViewController)
 }
 
 public protocol TabViewChild
@@ -330,5 +333,9 @@ extension TabViewController: TabViewBarDataSource, TabViewBarDelegate {
 
 	func wantsCloseButton(for tab: UIViewController) -> Bool {
 		return delegate?.tabViewController(self, showCloseButtonForTab: tab) ?? true
+	}
+
+	func newTab() {
+		delegate?.tabViewControllerWantsNewTab(self)
 	}
 }
