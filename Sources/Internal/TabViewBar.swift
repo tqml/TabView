@@ -83,7 +83,7 @@ class TabViewBar: UIView {
         self.trailingBarButtonStackView = UIStackView()
         
         self.tabCollectionView = TabViewTabCollectionView(theme: theme)
-		self.newTabButton = UIButton(type: .custom)
+		self.newTabButton = AddButton(type: .custom)
         self.separator = UIView()
         
         super.init(frame: .zero)
@@ -174,12 +174,7 @@ class TabViewBar: UIView {
         titleLabel.textColor = theme.barTitleColor
         separator.backgroundColor = theme.separatorColor
         tabCollectionView.theme = theme
-
-		let attributes: [NSAttributedStringKey: Any] = [
-			.font: UIFont.systemFont(ofSize: 22),
-			.foregroundColor: theme.barTitleColor
-			]
-		newTabButton.setAttributedTitle(NSAttributedString(string: "+", attributes: attributes), for: .normal)
+		newTabButton.tintColor = theme.barTitleColor
 		newTabButton.backgroundColor = theme.tabBackgroundDeselectedColor
     }
     
@@ -283,3 +278,27 @@ class TabViewBar: UIView {
 	}
 }
 
+private class AddButton: UIButton
+{
+	override func draw(_ rect: CGRect)
+	{
+		var armLength = floor(min(frame.width, frame.height) / 2)
+
+		if Int(armLength) % 2 == 0
+		{
+			// Make sure legth is odd so that we can centralize the icon
+			armLength -= 1.0
+		}
+
+		guard armLength > 0 else
+		{
+			return
+		}
+
+		let center = CGPoint(x: frame.width / 2, y: frame.height / 2)
+
+		tintColor.setFill()
+		UIRectFill(CGRect(x: center.x - armLength / 2, y: floor(center.y), width: armLength, height: 1))
+		UIRectFill(CGRect(x: floor(center.x), y: center.y - armLength / 2, width: 1, height: armLength))
+	}
+}
