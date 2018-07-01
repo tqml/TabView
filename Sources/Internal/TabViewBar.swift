@@ -249,9 +249,11 @@ class TabViewBar: UIView {
         if shouldHide && !tabCollectionView.isHidden {
             tabCollectionView.isHidden = true
             tabTopConstraint?.constant = -tabHeight
+			newTabButton.isHidden = true
         } else if !shouldHide && tabCollectionView.isHidden {
             tabCollectionView.isHidden = false
             tabTopConstraint?.constant = 0
+			newTabButton.isHidden = false
         }
     }
     
