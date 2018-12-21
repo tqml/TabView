@@ -35,7 +35,7 @@ class TabViewTabCollectionView: UICollectionView {
         self.backgroundColor = nil
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
-        self.decelerationRate = UIScrollViewDecelerationRateFast
+        self.decelerationRate = UIScrollView.DecelerationRate.fast
         self.allowsMultipleSelection = false
 
         // Enable drag and drop
