@@ -48,7 +48,7 @@ open class TabViewController: UIViewController {
             } else {
                 visibleNavigationItemObserver = nil
             }
-            if let newValue = visibleViewController, let index = viewControllers.index(of: newValue) {
+            if let newValue = visibleViewController, let index = viewControllers.firstIndex(of: newValue) {
                 tabViewBar.selectTab(atIndex: index)
             }
             refreshTabBar()
@@ -211,7 +211,7 @@ open class TabViewController: UIViewController {
 	/// internal method used for more than simply closing tabs, like also to move controllers between different
 	/// tab view controllers.
 	func detachTab(_ tab: UIViewController) {
-        if let index = _viewControllers.index(of: tab) {
+        if let index = _viewControllers.firstIndex(of: tab) {
             tabViewBar.layoutIfNeeded()
             _viewControllers.remove(at: index)
             tabViewBar.removeTab(atIndex: index)
@@ -237,7 +237,7 @@ open class TabViewController: UIViewController {
     }
 
     func insertTab(_ tab: UIViewController, atIndex index: Int) {
-        if let oldIndex = _viewControllers.index(of: tab) {
+        if let oldIndex = _viewControllers.firstIndex(of: tab) {
             _viewControllers.remove(at: oldIndex)
         }
         _viewControllers.insert(tab, at: index)
