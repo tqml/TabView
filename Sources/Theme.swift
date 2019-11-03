@@ -81,3 +81,18 @@ open class TabViewThemeDark: NSObject, TabViewTheme {
     public var tabSelectedTextColor: UIColor = .white
     public var statusBarStyle: UIStatusBarStyle = .lightContent
 }
+
+@available(iOS 13.0, *)
+open class TabViewThemeDynamic: NSObject, TabViewTheme {
+	public var backgroundColor: UIColor = .systemBackground
+    public var barTitleColor: UIColor = .label
+    public var barTintColor: UIColor? = nil
+    public var barBlurStyle: UIBlurEffect.Style = .systemMaterial
+    public var separatorColor: UIColor = .separator
+    public var tabCloseButtonColor: UIColor = .label
+    public var tabCloseButtonBackgroundColor: UIColor = .systemGray2
+    public var tabBackgroundDeselectedColor: UIColor = .systemGray3
+    public var tabTextColor: UIColor = .secondaryLabel
+    public var tabSelectedTextColor: UIColor = .label
+    public var statusBarStyle: UIStatusBarStyle = .default
+}
