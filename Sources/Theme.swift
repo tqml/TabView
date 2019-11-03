@@ -22,7 +22,7 @@ import UIKit
 
     /// A color to apply to the blur effect of the tab view.
     /// Has a minimal effect, similar to the UINavigationBar barTintColor property does.
-    var barTintColor: UIColor { get }
+    var barTintColor: UIColor? { get }
 
     /// The style of blur to apply to the tab bar.
     var barBlurStyle: UIBlurEffect.Style { get }
@@ -55,7 +55,7 @@ import UIKit
 open class TabViewThemeLight: NSObject, TabViewTheme {
     public var backgroundColor: UIColor = .lightGray
     public var barTitleColor: UIColor = .black
-    public var barTintColor: UIColor = .init(white: 1, alpha: 1)
+    public var barTintColor: UIColor? = .init(white: 1, alpha: 1)
     public var barBlurStyle: UIBlurEffect.Style = .light
     public var separatorColor: UIColor = .init(white: 0.7, alpha: 1)
     public var tabCloseButtonColor: UIColor = .white
@@ -71,7 +71,7 @@ open class TabViewThemeLight: NSObject, TabViewTheme {
 open class TabViewThemeDark: NSObject, TabViewTheme {
     public var backgroundColor: UIColor = .darkGray
     public var barTitleColor: UIColor = .white
-    public var barTintColor: UIColor = .init(white: 0.2, alpha: 1)
+    public var barTintColor: UIColor? = .init(white: 0.2, alpha: 1)
     public var barBlurStyle: UIBlurEffect.Style = .dark
     public var separatorColor: UIColor = .init(white: 0.15, alpha: 1)
     public var tabCloseButtonColor: UIColor = .init(white: 50/255, alpha: 1)

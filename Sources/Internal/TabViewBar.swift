@@ -169,7 +169,7 @@ class TabViewBar: UIView {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private func applyTheme(_ theme: TabViewTheme) {
-        backgroundColor = theme.barTintColor.withAlphaComponent(0.7)
+        backgroundColor = theme.barTintColor.map({ $0.withAlphaComponent(0.7) })
         visualEffectView.effect = UIBlurEffect.init(style: theme.barBlurStyle)
         titleLabel.textColor = theme.barTitleColor
         separator.backgroundColor = theme.separatorColor
