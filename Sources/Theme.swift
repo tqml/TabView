@@ -90,8 +90,8 @@ open class TabViewThemeDynamic: NSObject, TabViewTheme {
     public var barBlurStyle: UIBlurEffect.Style = .systemMaterial
     public var separatorColor: UIColor = .separator
     public var tabCloseButtonColor: UIColor = .label
-    public var tabCloseButtonBackgroundColor: UIColor = .systemGray2
-    public var tabBackgroundDeselectedColor: UIColor = .systemGray3
+    public var tabCloseButtonBackgroundColor: UIColor = .systemGray4
+    public var tabBackgroundDeselectedColor: UIColor = .systemGray5
     public var tabTextColor: UIColor = .secondaryLabel
     public var tabSelectedTextColor: UIColor = .label
     public var statusBarStyle: UIStatusBarStyle = .default
