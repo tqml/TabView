@@ -323,8 +323,7 @@ public protocol TabViewControllerDelegate: class {
 	func tabViewControllerWantsNewTab(_ tabViewController: TabViewController)
 }
 
-public protocol TabViewChild
-{
+public protocol TabViewChild {
 	var tabViewController: TabViewController? { get set }
 }
 
@@ -338,4 +337,17 @@ extension TabViewController: TabViewBarDataSource, TabViewBarDelegate {
 	func newTab() {
 		delegate?.tabViewControllerWantsNewTab(self)
 	}
+}
+
+public extension UIViewController {
+
+    /// Finds and returns the closest parent view controller that is a kind of `TabViewController`, if any. Otherwise
+    /// returns `nil`.
+    var tabViewController: TabViewController? {
+        guard let tabViewController = parent as? TabViewController else {
+            return parent?.tabViewController
+        }
+
+        return tabViewController
+    }
 }
