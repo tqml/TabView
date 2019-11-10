@@ -14,7 +14,7 @@ class NavigationItemObserver {
     weak var navigationItem: UINavigationItem?
     private var observations: [NSKeyValueObservation] = []
 
-    init(navigationItem: UINavigationItem, _ changeHandler: @escaping () -> Void) {
+    init(_ navigationItem: UINavigationItem, _ changeHandler: @escaping () -> Void) {
         self.navigationItem = navigationItem
 
         observations = [

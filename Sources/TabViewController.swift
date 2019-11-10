@@ -42,9 +42,9 @@ open class TabViewController: UIViewController {
             updateVisibleViewControllerInsets()
             
             if let visibleViewController = visibleViewController {
-                visibleNavigationItemObserver = NavigationItemObserver.init(navigationItem: visibleViewController.navigationItem, { [weak self] in
+                visibleNavigationItemObserver = NavigationItemObserver(visibleViewController.navigationItem) { [weak self] in
                     self?.refreshTabBar()
-                })
+                }
             } else {
                 visibleNavigationItemObserver = nil
             }
@@ -130,7 +130,7 @@ open class TabViewController: UIViewController {
         tabViewBar.barDataSource = self
         tabViewBar.barDelegate = self
 
-        self.ownNavigationItemObserver = NavigationItemObserver.init(navigationItem: self.navigationItem, self.refreshTabBar)
+        self.ownNavigationItemObserver = NavigationItemObserver(self.navigationItem, self.refreshTabBar)
     }
 
     public required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
