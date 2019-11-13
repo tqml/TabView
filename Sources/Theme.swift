@@ -63,7 +63,15 @@ open class TabViewThemeLight: NSObject, TabViewTheme {
     public var tabBackgroundDeselectedColor: UIColor = .init(white: 0.6, alpha: 0.3)
     public var tabTextColor: UIColor = .init(white: 0.1, alpha: 1)
     public var tabSelectedTextColor: UIColor = .black
-    public var statusBarStyle: UIStatusBarStyle = .default
+    public var statusBarStyle: UIStatusBarStyle = defaultStatusBarStyle()
+
+    private static func defaultStatusBarStyle() -> UIStatusBarStyle {
+        if #available(iOSApplicationExtension 13.0, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
+    }
 }
 
 /// Dark tab view theme.
