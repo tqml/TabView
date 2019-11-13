@@ -183,10 +183,6 @@ open class TabViewController: UIViewController {
             _viewControllers.append(tab)
             tabViewBar.addTab(atIndex: _viewControllers.count - 1)
 			delegate?.tabViewController(self, didInstallTab: tab)
-
-			if var tabChild = tab as? TabViewChild {
-				tabChild.tabViewController = self
-			}
         }
         visibleViewController = tab
 		delegate?.tabViewController(self, didActivateTab: tab)
@@ -221,10 +217,6 @@ open class TabViewController: UIViewController {
             } else {
                 visibleViewController = _viewControllers[index - 1]
             }
-
-			if var tabChild = tab as? TabViewChild {
-				tabChild.tabViewController = nil
-			}
         }
 
         // If this is the secondary vc in a container, and there are none left,
@@ -321,10 +313,6 @@ public protocol TabViewControllerDelegate: class {
 
 	/// Informs the delegate that the user has tapped the "new tab" button in the specified tab view controller.
 	func tabViewControllerWantsNewTab(_ tabViewController: TabViewController)
-}
-
-public protocol TabViewChild {
-	var tabViewController: TabViewController? { get set }
 }
 
 // Define these conformances, to make sure we expose the proper methods to the tab view bar.
