@@ -66,7 +66,7 @@ open class TabViewThemeLight: NSObject, TabViewTheme {
     public var statusBarStyle: UIStatusBarStyle = defaultStatusBarStyle()
 
     private static func defaultStatusBarStyle() -> UIStatusBarStyle {
-        if #available(iOSApplicationExtension 13.0, *) {
+        if #available(iOS 13.0, *) {
             return .darkContent
         } else {
             return .default
