@@ -17,7 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let tabRoot = TabViewContainerViewController<ViewController>.init(theme: TabViewThemeLight())
+        let tabRoot : TabViewContainerViewController<ViewController>
+        
+        if #available(iOS 13.0, *) {
+            tabRoot = TabViewContainerViewController<ViewController>.init(theme: TabViewThemeDynamic())
+        } else {
+            tabRoot = TabViewContainerViewController<ViewController>.init(theme: TabViewThemeLight())
+        }
+        
+        
         window?.rootViewController = tabRoot
         window?.makeKeyAndVisible()
         
