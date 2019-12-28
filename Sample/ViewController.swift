@@ -45,7 +45,10 @@ class ViewController: TabViewController {
             self.theme = TabViewThemeLight()
         }
     }
-
+    
+    @IBAction func buttonTouched(_ sender: Any) {
+    }
+    
 }
 
 private class Tab: UITableViewController {

@@ -31,10 +31,30 @@
 		3C905FC12025BEBB0084BA63 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1768312025801E0031FEA9 /* TabViewController.swift */; };
 		3CD4457A202ACFC500DD3CCB /* TabViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD44579202ACFC500DD3CCB /* TabViewContainerViewController.swift */; };
 		3CD4457B202ACFC700DD3CCB /* TabViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD44579202ACFC500DD3CCB /* TabViewContainerViewController.swift */; };
+		F52FEE8823B65A16000D3177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52FEE8723B65A16000D3177 /* AppDelegate.swift */; };
+		F52FEE8A23B65A16000D3177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52FEE8923B65A16000D3177 /* SceneDelegate.swift */; };
+		F52FEE8F23B65A16000D3177 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52FEE8D23B65A16000D3177 /* Main.storyboard */; };
+		F52FEE9123B65A18000D3177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52FEE9023B65A18000D3177 /* Assets.xcassets */; };
+		F52FEE9423B65A18000D3177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52FEE9223B65A18000D3177 /* LaunchScreen.storyboard */; };
+		F52FEE9923B65A2D000D3177 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17681D20257F910031FEA9 /* ViewController.swift */; };
+		F52FEE9B23B65A6A000D3177 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F52FEE9A23B65A6A000D3177 /* Default-568h@2x.png */; };
+		F52FEE9D23B65B30000D3177 /* TabView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C17680920257F630031FEA9 /* TabView.framework */; };
+		F52FEE9E23B65B30000D3177 /* TabView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3C17680920257F630031FEA9 /* TabView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F5AD1F8923B6C2D200392D0C /* NewTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AD1F8723B6C2D200392D0C /* NewTabViewController.swift */; };
+		F5AD1F8A23B6C2D200392D0C /* NewTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5AD1F8823B6C2D200392D0C /* NewTabViewController.xib */; };
+		F5D2361823B743BC00BD6223 /* NewTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D2361723B743BC00BD6223 /* NewTabBarView.swift */; };
+		F5D2361A23B743CD00BD6223 /* TabCollectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D2361923B743CD00BD6223 /* TabCollectionCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		3C17682B20257FA50031FEA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C17680020257F630031FEA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C17680820257F630031FEA9;
+			remoteInfo = TabView;
+		};
+		F52FEE9F23B65B30000D3177 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3C17680020257F630031FEA9 /* Project object */;
 			proxyType = 1;
@@ -64,6 +84,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F52FEEA123B65B30000D3177 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F52FEE9E23B65B30000D3177 /* TabView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +117,18 @@
 		3C857EB72029626A0082D945 /* TabViewTabCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewTabCollectionViewLayout.swift; sourceTree = "<group>"; };
 		3C905FB12025BEAF0084BA63 /* liblibTabView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibTabView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD44579202ACFC500DD3CCB /* TabViewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewContainerViewController.swift; sourceTree = "<group>"; };
+		F52FEE8523B65A16000D3177 /* TabView-SampleStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabView-SampleStoryboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F52FEE8723B65A16000D3177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F52FEE8923B65A16000D3177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F52FEE8E23B65A16000D3177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F52FEE9023B65A18000D3177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F52FEE9323B65A18000D3177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F52FEE9523B65A18000D3177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F52FEE9A23B65A6A000D3177 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F5AD1F8723B6C2D200392D0C /* NewTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabViewController.swift; sourceTree = "<group>"; };
+		F5AD1F8823B6C2D200392D0C /* NewTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTabViewController.xib; sourceTree = "<group>"; };
+		F5D2361723B743BC00BD6223 /* NewTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabBarView.swift; sourceTree = "<group>"; };
+		F5D2361923B743CD00BD6223 /* TabCollectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,16 +154,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F52FEE8223B65A16000D3177 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52FEE9D23B65B30000D3177 /* TabView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		3C1767FF20257F630031FEA9 = {
 			isa = PBXGroup;
 			children = (
+				F52FEE9A23B65A6A000D3177 /* Default-568h@2x.png */,
 				3C17681420257F7F0031FEA9 /* Sources */,
 				3C17680B20257F630031FEA9 /* Framework */,
 				3C17681A20257F910031FEA9 /* Sample */,
+				F52FEE8623B65A16000D3177 /* TabView-SampleStoryboard */,
 				3C17680A20257F630031FEA9 /* Products */,
+				F52FEE9C23B65B30000D3177 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -131,6 +185,7 @@
 				3C17680920257F630031FEA9 /* TabView.framework */,
 				3C17681920257F910031FEA9 /* TabView Sample.app */,
 				3C905FB12025BEAF0084BA63 /* liblibTabView.a */,
+				F52FEE8523B65A16000D3177 /* TabView-SampleStoryboard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +202,7 @@
 		3C17681420257F7F0031FEA9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F5AD1F8623B6C2B100392D0C /* IB */,
 				3C176840202589440031FEA9 /* Internal */,
 				3C176835202582F60031FEA9 /* Theme.swift */,
 				3C1768312025801E0031FEA9 /* TabViewController.swift */,
@@ -202,6 +258,37 @@
 				3C857EB72029626A0082D945 /* TabViewTabCollectionViewLayout.swift */,
 			);
 			path = TabCollectionView;
+			sourceTree = "<group>";
+		};
+		F52FEE8623B65A16000D3177 /* TabView-SampleStoryboard */ = {
+			isa = PBXGroup;
+			children = (
+				F52FEE8723B65A16000D3177 /* AppDelegate.swift */,
+				F52FEE8923B65A16000D3177 /* SceneDelegate.swift */,
+				F52FEE8D23B65A16000D3177 /* Main.storyboard */,
+				F52FEE9023B65A18000D3177 /* Assets.xcassets */,
+				F52FEE9223B65A18000D3177 /* LaunchScreen.storyboard */,
+				F52FEE9523B65A18000D3177 /* Info.plist */,
+			);
+			path = "TabView-SampleStoryboard";
+			sourceTree = "<group>";
+		};
+		F52FEE9C23B65B30000D3177 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5AD1F8623B6C2B100392D0C /* IB */ = {
+			isa = PBXGroup;
+			children = (
+				F5AD1F8723B6C2D200392D0C /* NewTabViewController.swift */,
+				F5AD1F8823B6C2D200392D0C /* NewTabViewController.xib */,
+				F5D2361723B743BC00BD6223 /* NewTabBarView.swift */,
+				F5D2361923B743CD00BD6223 /* TabCollectionCollectionViewCell.swift */,
+			);
+			path = IB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,13 +359,32 @@
 			productReference = 3C905FB12025BEAF0084BA63 /* liblibTabView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		F52FEE8423B65A16000D3177 /* TabView-SampleStoryboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F52FEE9623B65A18000D3177 /* Build configuration list for PBXNativeTarget "TabView-SampleStoryboard" */;
+			buildPhases = (
+				F52FEE8123B65A16000D3177 /* Sources */,
+				F52FEE8223B65A16000D3177 /* Frameworks */,
+				F52FEE8323B65A16000D3177 /* Resources */,
+				F52FEEA123B65B30000D3177 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F52FEEA023B65B30000D3177 /* PBXTargetDependency */,
+			);
+			name = "TabView-SampleStoryboard";
+			productName = "TabView-SampleStoryboard";
+			productReference = F52FEE8523B65A16000D3177 /* TabView-SampleStoryboard.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3C17680020257F630031FEA9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Ian McDowell";
 				TargetAttributes = {
@@ -294,6 +400,10 @@
 					};
 					3C905FB02025BEAF0084BA63 = {
 						CreatedOnToolsVersion = 9.2;
+					};
+					F52FEE8423B65A16000D3177 = {
+						CreatedOnToolsVersion = 11.3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -313,6 +423,7 @@
 				3C17680820257F630031FEA9 /* TabView */,
 				3C905FB02025BEAF0084BA63 /* libTabView */,
 				3C17681820257F910031FEA9 /* TabView Sample */,
+				F52FEE8423B65A16000D3177 /* TabView-SampleStoryboard */,
 			);
 		};
 /* End PBXProject section */
@@ -322,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5AD1F8A23B6C2D200392D0C /* NewTabViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +443,17 @@
 			files = (
 				3C17682620257F910031FEA9 /* LaunchScreen.storyboard in Resources */,
 				3C17682320257F910031FEA9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F52FEE8323B65A16000D3177 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52FEE9423B65A18000D3177 /* LaunchScreen.storyboard in Resources */,
+				F52FEE9B23B65A6A000D3177 /* Default-568h@2x.png in Resources */,
+				F52FEE9123B65A18000D3177 /* Assets.xcassets in Resources */,
+				F52FEE8F23B65A16000D3177 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +467,10 @@
 				3C17683F202585D80031FEA9 /* UIBarButtonItem+View.swift in Sources */,
 				3C176836202582F60031FEA9 /* Theme.swift in Sources */,
 				3C176834202581BE0031FEA9 /* NSLayoutConstraint+Custom.swift in Sources */,
+				F5AD1F8923B6C2D200392D0C /* NewTabViewController.swift in Sources */,
 				3C17683D202585920031FEA9 /* TabViewTabCollectionView.swift in Sources */,
+				F5D2361823B743BC00BD6223 /* NewTabBarView.swift in Sources */,
+				F5D2361A23B743CD00BD6223 /* TabCollectionCollectionViewCell.swift in Sources */,
 				3C17683B2025855C0031FEA9 /* TabViewBar.swift in Sources */,
 				3C857EB82029626A0082D945 /* TabViewTabCollectionViewLayout.swift in Sources */,
 				3C1768422025A33C0031FEA9 /* NavigationItemObserver.swift in Sources */,
@@ -377,6 +503,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F52FEE8123B65A16000D3177 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52FEE8823B65A16000D3177 /* AppDelegate.swift in Sources */,
+				F52FEE9923B65A2D000D3177 /* ViewController.swift in Sources */,
+				F52FEE8A23B65A16000D3177 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -385,6 +521,11 @@
 			target = 3C17680820257F630031FEA9 /* TabView */;
 			targetProxy = 3C17682B20257FA50031FEA9 /* PBXContainerItemProxy */;
 		};
+		F52FEEA023B65B30000D3177 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C17680820257F630031FEA9 /* TabView */;
+			targetProxy = F52FEE9F23B65B30000D3177 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -392,6 +533,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				3C17682520257F910031FEA9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F52FEE8D23B65A16000D3177 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F52FEE8E23B65A16000D3177 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F52FEE9223B65A18000D3177 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F52FEE9323B65A18000D3177 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -523,14 +680,17 @@
 		3C17681220257F630031FEA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N87X7V33UH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.ianmcdowell.TabView;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kulnik.TabView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 			};
@@ -539,14 +699,17 @@
 		3C17681320257F630031FEA9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N87X7V33UH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Framework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.ianmcdowell.TabView;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kulnik.TabView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 			};
@@ -604,6 +767,45 @@
 			};
 			name = Release;
 		};
+		F52FEE9723B65A18000D3177 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N87X7V33UH;
+				INFOPLIST_FILE = "TabView-SampleStoryboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.kulnik.TabView-SampleStoryboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F52FEE9823B65A18000D3177 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N87X7V33UH;
+				INFOPLIST_FILE = "TabView-SampleStoryboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.kulnik.TabView-SampleStoryboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -639,6 +841,15 @@
 			buildConfigurations = (
 				3C905FB72025BEAF0084BA63 /* Debug */,
 				3C905FB82025BEAF0084BA63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F52FEE9623B65A18000D3177 /* Build configuration list for PBXNativeTarget "TabView-SampleStoryboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F52FEE9723B65A18000D3177 /* Debug */,
+				F52FEE9823B65A18000D3177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

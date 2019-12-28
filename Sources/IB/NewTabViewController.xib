@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewTabViewController" customModule="TabView" customModuleProvider="target">
+            <connections>
+                <outlet property="tabViewBar" destination="fRz-ar-ahp" id="qrl-ck-Wn5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="809" height="219"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRz-ar-ahp" customClass="NewTabBarView" customModule="TabView" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="809" height="141"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="minimumBarItemWidth">
+                            <real key="value" value="160"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fRz-ar-ahp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CAd-NL-kmd"/>
+                <constraint firstItem="fRz-ar-ahp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="W7I-tA-ZnV"/>
+                <constraint firstItem="fRz-ar-ahp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fMm-Xz-YZ8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fRz-ar-ahp" secondAttribute="bottom" id="mVC-Qc-kX3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="706.52173913043487" y="-344.53125"/>
+        </view>
+    </objects>
+</document>
